@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Wedara Patisserie - Haute Gâteaux & Luxury Cakes</title>
+    <title>Wedara Food - Haute Gâteaux & Luxury Cakes</title>
     <meta name="description" content="Menghadirkan kue premium kustom, dessert mewah, dan pastry artisan berkualitas tinggi oleh Erissca Ernanda. Dibuat fresh setiap hari dengan bahan terkurasi.">
     <meta name="robots" content="index, follow">
     
@@ -66,18 +66,18 @@
         input:focus, select:focus, textarea:focus {
             border-color: #D4A373 !important;
         }
-        /* Standarisasi aspect ratio & fallback background pencahayaan sinematik gelap */
-        .image-container-fallback {
-            background: linear-gradient(145deg, #1f1f1f, #0a0a0a);
+        .image-aspect-fix {
             position: relative;
+            width: 100%;
+            height: 100%;
             overflow: hidden;
+            background-color: #111;
         }
-        .image-container-fallback::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 50% 30%, rgba(212, 163, 115, 0.08), transparent 70%);
-            pointer-events: none;
+        .image-aspect-fix img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
     </style>
 
@@ -85,8 +85,8 @@
     {
       "@context": "https://schema.org",
       "@type": "Bakery",
-      "name": "Wedara Patisserie by Erissca Ernanda",
-      "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587",
+      "name": "Wedara Food by Erissca Ernanda",
+      "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Perumahan Muhajirin Asri 2 & 3, Pertokoan Muhajirin Asri No.2, Terong Tawah, Kec. Labuapi",
@@ -112,8 +112,8 @@
     <header class="sticky top-0 z-50 bg-[#0D0D0D]/90 backdrop-blur-md border-b border-stone-800 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex flex-col">
-                <a href="#" class="font-heading text-xl sm:text-2xl font-bold tracking-wider text-primary">WEDARA PATISSERIE<span class="text-accent">.</span></a>
-                <span class="text-[9px] tracking-[0.3em] uppercase text-stone-500 font-light -mt-1 hidden sm:block">by Erissca Ernanda</span>
+                <a href="#" class="font-heading text-xl sm:text-2xl font-bold tracking-wider text-primary leading-none">WEDARA FOOD<span class="text-accent">.</span></a>
+                <span class="text-[9px] tracking-[0.3em] uppercase text-stone-500 font-light mt-1 hidden sm:block">BY ERISSCA ERNANDA</span>
             </div>
             
             <nav class="hidden md:flex space-x-8 text-sm font-medium tracking-wide">
@@ -154,13 +154,13 @@
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 pt-2">
                     <a href="#pesan" class="bg-primary text-black text-center px-8 py-4 tracking-widest text-xs uppercase font-medium hover:bg-opacity-90 transition-all shadow-md">Pesan Sekarang</a>
-                    <a href="#menu" class="border border-primary text-primary text-center px-8 py-4 tracking-widest text-xs uppercase font-medium hover:bg-primary hover:text-white transition-all">Lihat Koleksi</a>
+                    <a href="#menu" class="border border-primary text-primary text-center px-8 py-4 tracking-widest text-xs uppercase font-medium hover:bg-primary hover:text-black transition-all">Lihat Koleksi</a>
                 </div>
             </div>
             <div class="relative w-full aspect-[4/5] lg:aspect-square max-h-[600px]" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="1000">
                 <div class="absolute inset-4 border border-accent/20 z-10 pointer-events-none"></div>
-                <div class="w-full h-full image-container-fallback">
-                    <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80" alt="Premium Custom Cake Display" class="w-full h-full object-cover filter brightness-[0.85] contrast-[1.05]" onerror="this.style.display='none'">
+                <div class="image-aspect-fix">
+                    <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80" alt="Premium Custom Cake Display" loading="lazy">
                 </div>
                 <div class="absolute -bottom-6 -left-6 bg-[#181818] border border-stone-800 p-6 shadow-xl hidden md:block max-w-[200px] border-t-4 border-primary">
                     <p class="font-heading text-2xl text-primary font-bold">100%</p>
@@ -180,38 +180,38 @@
 
             <div class="grid grid-cols-2 lg:grid-cols-6 gap-4 sm:gap-6">
                 <div class="group cursor-pointer text-center" data-aos="fade-up" data-aos-delay="100">
-                    <div class="aspect-square overflow-hidden bg-cardBg relative mb-4 image-container-fallback">
-                        <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13636?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover filter brightness-[0.85] group-hover:scale-105 transition-transform duration-500" alt="Birthday Cake">
+                    <div class="aspect-square overflow-hidden bg-cardBg relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13636?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover filter brightness-[0.85] group-hover:scale-105 transition-transform duration-500" loading="lazy" alt="Birthday Cake">
                     </div>
                     <h3 class="font-heading text-base font-medium text-white group-hover:text-primary transition-colors">Birthday Cake</h3>
                 </div>
                 <div class="group cursor-pointer text-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="aspect-square overflow-hidden bg-cardBg relative mb-4 image-container-fallback">
-                        <img src="https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover filter brightness-[0.85] group-hover:scale-105 transition-transform duration-500" alt="Wedding Cake">
+                    <div class="aspect-square overflow-hidden bg-cardBg relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover filter brightness-[0.85] group-hover:scale-105 transition-transform duration-500" loading="lazy" alt="Wedding Cake">
                     </div>
                     <h3 class="font-heading text-base font-medium text-white group-hover:text-primary transition-colors">Wedding Cake</h3>
                 </div>
                 <div class="group cursor-pointer text-center" data-aos="fade-up" data-aos-delay="300">
-                    <div class="aspect-square overflow-hidden bg-cardBg relative mb-4 image-container-fallback">
-                        <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover filter brightness-[0.85] group-hover:scale-105 transition-transform duration-500" alt="Dessert Box">
+                    <div class="aspect-square overflow-hidden bg-cardBg relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover filter brightness-[0.85] group-hover:scale-105 transition-transform duration-500" loading="lazy" alt="Dessert Box">
                     </div>
                     <h3 class="font-heading text-base font-medium text-white group-hover:text-primary transition-colors">Dessert Box</h3>
                 </div>
                 <div class="group cursor-pointer text-center" data-aos="fade-up" data-aos-delay="400">
-                    <div class="aspect-square overflow-hidden bg-cardBg relative mb-4 image-container-fallback">
-                        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover filter brightness-[0.85] group-hover:scale-105 transition-transform duration-500" alt="Chocolate Collection">
+                    <div class="aspect-square overflow-hidden bg-cardBg relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover filter brightness-[0.85] group-hover:scale-105 transition-transform duration-500" loading="lazy" alt="Chocolate Collection">
                     </div>
                     <h3 class="font-heading text-base font-medium text-white group-hover:text-primary transition-colors">Chocolate</h3>
                 </div>
                 <div class="group cursor-pointer text-center" data-aos="fade-up" data-aos-delay="500">
-                    <div class="aspect-square overflow-hidden bg-cardBg relative mb-4 image-container-fallback">
-                        <img src="https://images.unsplash.com/photo-1607344645866-009c320c5ab8?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover filter brightness-[0.85] group-hover:scale-105 transition-transform duration-500" alt="Hampers Premium">
+                    <div class="aspect-square overflow-hidden bg-cardBg relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1607344645866-009c320c5ab8?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover filter brightness-[0.85] group-hover:scale-105 transition-transform duration-500" loading="lazy" alt="Hampers Premium">
                     </div>
                     <h3 class="font-heading text-base font-medium text-white group-hover:text-primary transition-colors">Hampers Premium</h3>
                 </div>
                 <div class="group cursor-pointer text-center" data-aos="fade-up" data-aos-delay="600">
-                    <div class="aspect-square overflow-hidden bg-cardBg relative mb-4 image-container-fallback">
-                        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover filter brightness-[0.85] group-hover:scale-105 transition-transform duration-500" alt="Artisan Pastry">
+                    <div class="aspect-square overflow-hidden bg-cardBg relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover filter brightness-[0.85] group-hover:scale-105 transition-transform duration-500" loading="lazy" alt="Artisan Pastry">
                     </div>
                     <h3 class="font-heading text-base font-medium text-white group-hover:text-primary transition-colors">Artisan Pastry</h3>
                 </div>
@@ -223,7 +223,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="border-b border-stone-800 pb-6 mb-12 flex justify-between items-baseline">
                 <h2 class="font-heading text-2xl sm:text-3xl text-primary tracking-wide">Artisan Collection</h2>
-                <p class="text-[10px] uppercase tracking-widest text-stone-500">Wedara Signature &amp; Edition</p>
+                <p class="text-[10px] uppercase tracking-widest text-stone-500">Wedara Signature & Edition</p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
@@ -232,15 +232,15 @@
                     <div class="p-8">
                         <span class="text-[10px] uppercase tracking-widest text-primary block mb-1 font-semibold">Exquisite Masterpiece</span>
                         <h3 class="font-heading text-2xl text-white mb-6">Birthday Cake</h3>
-                        <div class="aspect-[3/4] overflow-hidden w-full mb-6 image-container-fallback border border-stone-800/40">
-                            <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13636?auto=format&fit=crop&w=600&q=80" alt="Signature Valrhona Gâteau - Birthday Cake" class="w-full h-full object-cover filter brightness-[0.85] group-hover:scale-102 transition-transform duration-700">
+                        <div class="aspect-[3/4] w-full mb-6 overflow-hidden border border-stone-800/40">
+                            <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13636?auto=format&fit=crop&w=600&q=80" alt="Signature Valrhona Gâteau - Birthday Cake" class="w-full h-full object-cover filter brightness-[0.85] group-hover:scale-102 transition-transform duration-700" loading="lazy">
                         </div>
                         <h4 class="font-heading text-lg text-white mb-2">Signature Valrhona Gâteau</h4>
                         <p class="text-stone-400 text-xs font-light leading-relaxed">A symphony of Valrhona chocolate ganache, luxurious bronze gold paint dusting, and crunchy hazelnut praline sheets.</p>
                     </div>
                     <div class="p-8 pt-0 flex justify-between items-center border-t border-stone-800/60 mt-6">
                         <span class="font-heading text-primary text-base font-medium">Rp 1.200.000</span>
-                        <a href="https://wa.me/6285964343063?text=Halo%20Wedara%20Patisserie,%20saya%20tertarik%20memesan%20Signature%20Valrhona%20Gâteau%20(Birthday%20Cake)." target="_blank" class="border border-primary/40 text-customText hover:bg-primary hover:text-black font-medium tracking-widest text-[10px] px-4 py-2.5 uppercase transition-all">Add to Bag</a>
+                        <a href="https://wa.me/6285964343063?text=Halo%20Wedara%20Food,%20saya%20tertarik%20memesan%20Signature%20Valrhona%20Gâteau%20(Birthday%20Cake)." target="_blank" class="border border-primary/40 text-customText hover:bg-primary hover:text-black font-medium tracking-widest text-[10px] px-4 py-2.5 uppercase transition-all">Add to Bag</a>
                     </div>
                 </div>
 
@@ -255,15 +255,15 @@
                     <div class="bg-cardBg border border-stone-800 p-8 flex flex-col justify-between group shadow-xl" data-aos="fade-up" data-aos-delay="150">
                         <div>
                             <h3 class="font-heading text-xl text-white mb-4">Celebration Cake</h3>
-                            <div class="aspect-[4/3] overflow-hidden w-full mb-4 image-container-fallback border border-stone-800/40">
-                                <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=600&q=80" alt="Abstract Bronze Gâteau - Celebration Cake" class="w-full h-full object-cover filter brightness-[0.85] group-hover:scale-102 transition-transform duration-700">
+                            <div class="aspect-[4/3] w-full mb-4 overflow-hidden border border-stone-800/40">
+                                <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=600&q=80" alt="Abstract Bronze Gâteau - Celebration Cake" class="w-full h-full object-cover filter brightness-[0.85] group-hover:scale-102 transition-transform duration-700" loading="lazy">
                             </div>
                             <h4 class="font-heading text-base text-white mb-1">Abstract Bronze Gâteau</h4>
                             <p class="text-stone-400 text-xs font-light">Perfect for contemporary milestones and elegant dinner dates.</p>
                         </div>
                         <div class="flex justify-between items-center border-t border-stone-800/60 pt-4 mt-4">
                             <span class="font-heading text-primary text-sm font-medium">Rp 380.000</span>
-                            <a href="https://wa.me/6285964343063?text=Halo%20Wedara%20Patisserie,%20saya%20tertarik%20memesan%20Abstract%20Bronze%20Gâteau%20(Celebration%20Cake)." target="_blank" class="text-primary hover:text-white text-[10px] tracking-widest font-semibold uppercase transition-colors">Order Cake</a>
+                            <a href="https://wa.me/6285964343063?text=Halo%20Wedara%20Food,%20saya%20tertarik%20memesan%20Abstract%20Bronze%20Gâteau%20(Celebration%20Cake)." target="_blank" class="text-primary hover:text-white text-[10px] tracking-widest font-semibold uppercase transition-colors">Order Cake</a>
                         </div>
                     </div>
                 </div>
@@ -272,30 +272,30 @@
                     <div class="bg-cardBg border border-stone-800 p-8 flex flex-col justify-between group shadow-xl flex-grow" data-aos="fade-up" data-aos-delay="200">
                         <div>
                             <h3 class="font-heading text-xl text-white mb-4">Hampers Premium</h3>
-                            <div class="aspect-[16/10] overflow-hidden w-full mb-4 image-container-fallback border border-stone-800/40">
-                                <img src="https://images.unsplash.com/photo-1607344645866-009c320c5ab8?auto=format&fit=crop&w=600&q=80" alt="Gourmet Hamper Collection" class="w-full h-full object-cover filter brightness-[0.85] group-hover:scale-102 transition-transform duration-700">
+                            <div class="aspect-[16/10] w-full mb-4 overflow-hidden border border-stone-800/40">
+                                <img src="https://images.unsplash.com/photo-1607344645866-009c320c5ab8?auto=format&fit=crop&w=600&q=80" alt="Gourmet Hamper Collection" class="w-full h-full object-cover filter brightness-[0.85] group-hover:scale-102 transition-transform duration-700" loading="lazy">
                             </div>
                             <h4 class="font-heading text-base text-white mb-1">Gourmet Hamper Luxury Collection</h4>
                             <p class="text-stone-400 text-xs font-light">Artisan macarons, vintage choice flavors, and assorted butter financiers packed inside a signature wood tier.</p>
                         </div>
                         <div class="flex justify-between items-center border-t border-stone-800/60 pt-4 mt-4">
                             <span class="font-heading text-primary text-sm font-medium">Rp 650.000</span>
-                            <a href="https://wa.me/6285964343063?text=Halo%20Wedara%20Patisserie,%20saya%20tertarik%20memesan%20Gourmet%20Hamper%20Collection." target="_blank" class="text-primary hover:text-white text-[10px] tracking-widest font-semibold uppercase transition-colors">Gift Box Set</a>
+                            <a href="https://wa.me/6285964343063?text=Halo%20Wedara%20Food,%20saya%20tertarik%20memesan%20Gourmet%20Hamper%20Collection." target="_blank" class="text-primary hover:text-white text-[10px] tracking-widest font-semibold uppercase transition-colors">Gift Box Set</a>
                         </div>
                     </div>
 
                     <div class="bg-cardBg border border-stone-800 p-8 flex flex-col justify-between group shadow-xl" data-aos="fade-up" data-aos-delay="250">
                         <div>
                             <h3 class="font-heading text-xl text-white mb-4">White Wedding Cake Tier</h3>
-                            <div class="aspect-[4/3] overflow-hidden w-full mb-4 image-container-fallback border border-stone-800/40">
-                                <img src="https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=600&q=80" alt="Ornate White Tiered Gâteau" class="w-full h-full object-cover filter brightness-[0.85] group-hover:scale-102 transition-transform duration-700">
+                            <div class="aspect-[4/3] w-full mb-4 overflow-hidden border border-stone-800/40">
+                                <img src="https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=600&q=80" alt="Ornate White Tiered Gâteau" class="w-full h-full object-cover filter brightness-[0.85] group-hover:scale-102 transition-transform duration-700" loading="lazy">
                             </div>
                             <h4 class="font-heading text-base text-white mb-1">Ornate White Tiered Gâteau</h4>
                             <p class="text-stone-400 text-xs font-light">Classic pristine tiered design with rich organic Madagascar vanilla bean layers and bespoke edible sugar lace florals.</p>
                         </div>
                         <div class="flex justify-between items-center border-t border-stone-800/60 pt-4 mt-4">
                             <span class="font-heading text-primary text-sm font-medium">Bespoke Price</span>
-                            <a href="https://wa.me/6285964343063?text=Halo%20Wedara%20Patisserie,%20saya%20ingin%20konsultasi%20harga%20Ornate%20White%20Tiered%20Gâteau%20(Wedding%20Cake)." target="_blank" class="text-primary hover:text-white text-[10px] tracking-widest font-semibold uppercase transition-colors">Book Consultation</a>
+                            <a href="https://wa.me/6285964343063?text=Halo%20Wedara%20Food,%20saya%20ingin%20konsultasi%20harga%20Ornate%20White%20Tiered%20Gâteau%20(Wedding%20Cake)." target="_blank" class="text-primary hover:text-white text-[10px] tracking-widest font-semibold uppercase transition-colors">Book Consultation</a>
                         </div>
                     </div>
                 </div>
@@ -424,34 +424,34 @@
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div class="space-y-4">
                     <div class="overflow-hidden aspect-[3/4]" data-aos="fade-up">
-                        <img src="https://images.unsplash.com/photo-1542826438-bd32f43d626f?auto=format&fit=crop&w=500&q=80" alt="Baking process" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500 filter brightness-75" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1542826438-bd32f43d626f?auto=format&fit=crop&w=500&q=80" alt="Baking process" loading="lazy">
                     </div>
                     <div class="overflow-hidden aspect-square" data-aos="fade-up">
-                        <img src="https://images.unsplash.com/photo-1516685018646-549198525c1b?auto=format&fit=crop&w=500&q=80" alt="Cake details" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500 filter brightness-75" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1516685018646-549198525c1b?auto=format&fit=crop&w=500&q=80" alt="Cake details" loading="lazy">
                     </div>
                 </div>
                 <div class="space-y-4 pt-8 md:pt-12">
                     <div class="overflow-hidden aspect-square" data-aos="fade-up" data-aos-delay="100">
-                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=500&q=80" alt="Bakery interior" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500 filter brightness-75" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=500&q=80" alt="Bakery interior" loading="lazy">
                     </div>
                     <div class="overflow-hidden aspect-[3/4]" data-aos="fade-up" data-aos-delay="100">
-                        <img src="https://images.unsplash.com/photo-1464349172961-4c4af31997a3?auto=format&fit=crop&w=500&q=80" alt="Celebration cake" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500 filter brightness-75" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1464349172961-4c4af31997a3?auto=format&fit=crop&w=500&q=80" alt="Celebration cake" loading="lazy">
                     </div>
                 </div>
                 <div class="space-y-4">
                     <div class="overflow-hidden aspect-[3/4]" data-aos="fade-up" data-aos-delay="200">
-                        <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=500&q=80" alt="Elegant wedding setup" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500 filter brightness-75" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=500&q=80" alt="Elegant wedding setup" loading="lazy">
                     </div>
                     <div class="overflow-hidden aspect-square" data-aos="fade-up" data-aos-delay="200">
-                        <img src="https://images.unsplash.com/photo-1514517604298-cf80e0fb7f1e?auto=format&fit=crop&w=500&q=80" alt="Dessert macaron table" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500 filter brightness-75" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1514517604298-cf80e0fb7f1e?auto=format&fit=crop&w=500&q=80" alt="Dessert macaron table" loading="lazy">
                     </div>
                 </div>
                 <div class="space-y-4 pt-8 md:pt-12">
                     <div class="overflow-hidden aspect-square" data-aos="fade-up" data-aos-delay="300">
-                        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=500&q=80" alt="Chocolate glaze mini box" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500 filter brightness-75" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=500&q=80" alt="Chocolate glaze mini box" loading="lazy">
                     </div>
                     <div class="overflow-hidden aspect-[3/4]" data-aos="fade-up" data-aos-delay="300">
-                        <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13636?auto=format&fit=crop&w=500&q=80" alt="White wedding cake tier" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500 filter brightness-75" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13636?auto=format&fit=crop&w=500&q=80" alt="White wedding cake tier" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -530,7 +530,10 @@
     <footer class="bg-[#111111] text-stone-400 pt-20 pb-8 border-t border-stone-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             <div class="space-y-4">
-                <a href="#" class="font-heading text-xl font-bold tracking-wider text-white">WEDARA PATISSERIE<span class="text-accent">.</span></a>
+                <div class="flex flex-col">
+                    <a href="#" class="font-heading text-xl font-bold tracking-wider text-white leading-none">WEDARA FOOD<span class="text-accent">.</span></a>
+                    <span class="text-[8px] tracking-[0.25em] uppercase text-stone-500 font-light mt-1">BY ERISSCA ERNANDA</span>
+                </div>
                 <p class="text-xs font-light leading-relaxed text-stone-400">Atelier butik kue premium yang mendedikasikan waktu penuh demi menyajikan karya seni kuliner bercita rasa tinggi khas pastry benua Eropa.</p>
                 
                 <div class="flex space-x-4 pt-4">
@@ -561,18 +564,18 @@
             <div>
                 <h4 class="font-heading text-white text-base font-medium tracking-wide mb-6">Lokasi Peta</h4>
                 <div class="w-full h-32 bg-stone-950 relative overflow-hidden">
-                    <iframe src="https://www.google.com/maps/embed?pb=!11m18!1m12!1m3!1d3966.111111111111!2d106.815!3d-6.25!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTUnMDAuMCJTIDEwNks0OCcwNi4wIkU!5e0!3m2!1sid!2sid!4v1620000000000!5m2!1sid!2sid" class="w-full h-full border-0 opacity-70 hover:opacity-100 transition-opacity" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.0934005128003!2d116.07409497502446!3d-8.58434729148003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdbf6c58be858b%3A0x771694f5fb2b23a7!2sMuhajirin%20Asri!5e0!3m2!1sid!2sid!4v1716281726338!5m2!1sid!2sid" class="w-full h-full border-0 opacity-70 hover:opacity-100 transition-opacity" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-stone-800 pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] font-light">
-            <p>© 2026 WEDARA PATISSERIE. All Rights Reserved.</p>
+            <p>© 2026 WEDARA FOOD. All Rights Reserved.</p>
             <p class="mt-2 sm:mt-0">Designed for Elite Gourmet Experiences.</p>
         </div>
     </footer>
 
-    <a href="https://wa.me/6285964343063?text=Halo%20Wedara%20Patisserie,%20saya%20ingin%20bertanya%20mengenai%20koleksi%20menu%20kue%20premium." target="_blank" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 group" aria-label="Hubungi WhatsApp">
+    <a href="https://wa.me/6285964343063?text=Halo%20Wedara%20Food,%20saya%20ingin%20bertanya%20mengenai%20koleksi%20menu%20kue%20premium." target="_blank" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 group" aria-label="Hubungi WhatsApp">
         <i class="fa-brands fa-whatsapp text-2xl"></i>
         <span class="absolute right-14 bg-white text-black font-medium text-xs py-1.5 px-3 shadow-md rounded-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none border border-stone-100">Hubungi Kami</span>
     </a>
@@ -598,7 +601,7 @@
             
             const targetPhone = "6285964343063"; 
             
-            const textMessage = `*Design Your Dream Cake - WEDARA PATISSERIE*%0A%0A` +
+            const textMessage = `*Pemesanan Bespoke - WEDARA FOOD*%0A%0A` +
                                 `*Nama Patron:* ${nama}%0A` +
                                 `*WhatsApp No:* ${wa}%0A` +
                                 `*Tanggal Selebrasi:* ${tanggal}%0A` +
