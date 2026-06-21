@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Wedara Patisserie - Haute Gâteaux & Luxury Cakes</title>
+    <meta name="description" content="Menghadirkan kue premium kustom, dessert mewah, dan pastry artisan berkualitas tinggi oleh Erissca Ernanda. Dibuat fresh setiap hari dengan bahan terkurasi.">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#D4A373', 
+                        accent: '#E6C594',
+                        bgPremium: '#0D0D0D', 
+                        cardBg: '#181818', 
+                        customText: '#F3F4F6', 
+                    },
+                    fontFamily: {
+                        heading: ['Playfair Display', 'serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0D0D0D;
+            color: #F3F4F6;
+            font-family: 'Inter', sans-serif;
+        }
+        .font-heading {
+            font-family: 'Playfair Display', serif;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0D0D0D;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4A373;
+            border-radius: 3px;
+        }
+        input, select, textarea {
+            background-color: #181818 !important;
+            color: #FFFFFF !important;
+            border-color: #374151 !important;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #D4A373 !important;
+        }
+        /* Standarisasi aspect ratio & fallback background pencahayaan sinematik gelap */
+        .image-container-fallback {
+            background: linear-gradient(145deg, #1f1f1f, #0a0a0a);
+            position: relative;
+            overflow: hidden;
+        }
+        .image-container-fallback::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 30%, rgba(212, 163, 115, 0.08), transparent 70%);
+            pointer-events: none;
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Bakery",
+      "name": "Wedara Patisserie by Erissca Ernanda",
+      "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Perumahan Muhajirin Asri 2 & 3, Pertokoan Muhajirin Asri No.2, Terong Tawah, Kec. Labuapi",
+        "addressLocality": "Lombok Barat",
+        "addressRegion": "Nusa Tenggara Barat",
+        "postalCode": "83361",
+        "addressCountry": "ID"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+        ],
+        "opens": "08:00",
+        "closes": "22:00"
+      },
+      "telephone": "+6285964343063"
+    }
+    </script>
+</head>
+<body x-data="{ mobileMenuOpen: false }">
+
+    <header class="sticky top-0 z-50 bg-[#0D0D0D]/90 backdrop-blur-md border-b border-stone-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex flex-col">
+                <a href="#" class="font-heading text-xl sm:text-2xl font-bold tracking-wider text-primary">WEDARA PATISSERIE<span class="text-accent">.</span></a>
+                <span class="text-[9px] tracking-[0.3em] uppercase text-stone-500 font-light -mt-1 hidden sm:block">by Erissca Ernanda</span>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8 text-sm font-medium tracking-wide">
+                <a href="#kategori" class="text-customText hover:text-accent transition-colors">Kategori</a>
+                <a href="#menu" class="text-customText hover:text-accent transition-colors">Koleksi Artisan</a>
+                <a href="#paket" class="text-customText hover:text-accent transition-colors">Paket Perayaan</a>
+                <a href="#keunggulan" class="text-customText hover:text-accent transition-colors">Filosofi</a>
+                <a href="#pesan" class="text-customText hover:text-accent transition-colors">Custom Cake</a>
+            </nav>
+
+            <div class="hidden md:block">
+                <a href="#pesan" class="bg-primary text-black px-6 py-2.5 rounded-none text-sm tracking-widest hover:bg-opacity-90 transition-all font-medium uppercase">Bespoke Order</a>
+            </div>
+
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-customText focus:outline-none">
+                <i class="fa-solid text-xl" :class="mobileMenuOpen ? 'fa-xmark' : 'fa-bars'"></i>
+            </button>
+        </div>
+
+        <div x-show="mobileMenuOpen" x-transition class="md:hidden bg-[#181818] border-b border-stone-800 px-4 pt-2 pb-6 space-y-4">
+            <a href="#kategori" @click="mobileMenuOpen = false" class="block text-sm font-medium text-customText">Kategori</a>
+            <a href="#menu" @click="mobileMenuOpen = false" class="block text-sm font-medium text-customText">Koleksi Artisan</a>
+            <a href="#paket" @click="mobileMenuOpen = false" class="block text-sm font-medium text-customText">Paket Perayaan</a>
+            <a href="#keunggulan" @click="mobileMenuOpen = false" class="block text-sm font-medium text-customText">Filosofi</a>
+            <a href="#pesan" @click="mobileMenuOpen = false" class="block text-sm font-medium text-customText bg-primary text-black text-center py-2.5 mt-4">Bespoke Order</a>
+        </div>
+    </header>
+
+    <section class="relative min-h-[calc(100vh-5rem)] flex items-center bg-bgPremium overflow-hidden py-12 lg:py-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6 md:space-y-8 z-10" data-aos="fade-up" data-aos-duration="1000">
+                <span class="text-accent uppercase tracking-widest text-xs md:text-sm font-semibold block">Handcrafted Artisan Pastry</span>
+                <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl text-white font-light leading-tight">
+                    Luxury Cakes <br><span class="italic text-primary font-normal">Crafted for Your</span> Special Moments
+                </h1>
+                <p class="text-stone-400 max-w-lg text-sm sm:text-base font-light leading-relaxed">
+                    Menghadirkan resep haute pâtisserie otentik dan kemewahan visual ke dalam setiap gigitan kue kustom, koleksi dessert, dan hampers eksklusif Anda.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                    <a href="#pesan" class="bg-primary text-black text-center px-8 py-4 tracking-widest text-xs uppercase font-medium hover:bg-opacity-90 transition-all shadow-md">Pesan Sekarang</a>
+                    <a href="#menu" class="border border-primary text-primary text-center px-8 py-4 tracking-widest text-xs uppercase font-medium hover:bg-primary hover:text-white transition-all">Lihat Koleksi</a>
+                </div>
+            </div>
+            <div class="relative w-full aspect-[4/5] lg:aspect-square max-h-[600px]" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="1000">
+                <div class="absolute inset-4 border border-accent/20 z-10 pointer-events-none"></div>
+                <div class="w-full h-full image-container-fallback">
+                    <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80" alt="Premium Custom Cake Display" class="w-full h-full object-cover filter brightness-[0.85] contrast-[1.05]" onerror="this.style.display='none'">
+                </div>
+                <div class="absolute -bottom-6 -left-6 bg-[#181818] border border-stone-800 p-6 shadow-xl hidden md:block max-w-[200px] border-t-4 border-primary">
+                    <p class="font-heading text-2xl text-primary font-bold">100%</p>
+                    <p class="text-xs text-stone-400 font-light mt-1">Mentega Prancis & Bahan Organik Terkurasi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kategori" class="py-24 bg-[#111111]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+                <h2 class="font-heading text-3xl sm:text-4xl text-white font-light">Curated Categories</h2>
+                <div class="w-12 h-[1px] bg-accent mx-auto my-4"></div>
+                <p class="text-stone-400 text-sm font-light">Eksplorasi lini mahakarya manis yang dirancang khusus oleh pastry chef profesional.</p>
+            </div>
+
+            <div class="grid grid-cols-2 lg:grid-cols-6 gap-4 sm:gap-6">
+                <div class="group cursor-pointer text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="aspect-square overflow-hidden bg-cardBg relative mb-4 image-container-fallback">
+                        <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13636?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover filter brightness-[0.85] group-hover:scale-105 transition-transform duration-500" alt="Birthday Cake">
+                    </div>
+                    <h3 class="font-heading text-base font-medium text-white group-hover:text-primary transition-colors">Birthday Cake</h3>
+                </div>
+                <div class="group cursor-pointer text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="aspect-square overflow-hidden bg-cardBg relative mb-4 image-container-fallback">
+                        <img src="https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover filter brightness-[0.85] group-hover:scale-105 transition-transform duration-500" alt="Wedding Cake">
+                    </div>
+                    <h3 class="font-heading text-base font-medium text-white group-hover:text-primary transition-colors">Wedding Cake</h3>
+                </div>
+                <div class="group cursor-pointer text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="aspect-square overflow-hidden bg-cardBg relative mb-4 image-container-fallback">
+                        <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover filter brightness-[0.85] group-hover:scale-105 transition-transform duration-500" alt="Dessert Box">
+                    </div>
+                    <h3 class="font-heading text-base font-medium text-white group-hover:text-primary transition-colors">Dessert Box</h3>
+                </div>
+                <div class="group cursor-pointer text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="aspect-square overflow-hidden bg-cardBg relative mb-4 image-container-fallback">
+                        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover filter brightness-[0.85] group-hover:scale-105 transition-transform duration-500" alt="Chocolate Collection">
+                    </div>
+                    <h3 class="font-heading text-base font-medium text-white group-hover:text-primary transition-colors">Chocolate</h3>
+                </div>
+                <div class="group cursor-pointer text-center" data-aos="fade-up" data-aos-delay="500">
+                    <div class="aspect-square overflow-hidden bg-cardBg relative mb-4 image-container-fallback">
+                        <img src="https://images.unsplash.com/photo-1607344645866-009c320c5ab8?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover filter brightness-[0.85] group-hover:scale-105 transition-transform duration-500" alt="Hampers Premium">
+                    </div>
+                    <h3 class="font-heading text-base font-medium text-white group-hover:text-primary transition-colors">Hampers Premium</h3>
+                </div>
+                <div class="group cursor-pointer text-center" data-aos="fade-up" data-aos-delay="600">
+                    <div class="aspect-square overflow-hidden bg-cardBg relative mb-4 image-container-fallback">
+                        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover filter brightness-[0.85] group-hover:scale-105 transition-transform duration-500" alt="Artisan Pastry">
+                    </div>
+                    <h3 class="font-heading text-base font-medium text-white group-hover:text-primary transition-colors">Artisan Pastry</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="py-24 bg-bgPremium">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="border-b border-stone-800 pb-6 mb-12 flex justify-between items-baseline">
+                <h2 class="font-heading text-2xl sm:text-3xl text-primary tracking-wide">Artisan Collection</h2>
+                <p class="text-[10px] uppercase tracking-widest text-stone-500">Wedara Signature &amp; Edition</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                
+                <div class="lg:col-span-4 bg-cardBg border border-stone-800 flex flex-col justify-between group shadow-xl" data-aos="fade-up">
+                    <div class="p-8">
+                        <span class="text-[10px] uppercase tracking-widest text-primary block mb-1 font-semibold">Exquisite Masterpiece</span>
+                        <h3 class="font-heading text-2xl text-white mb-6">Birthday Cake</h3>
+                        <div class="aspect-[3/4] overflow-hidden w-full mb-6 image-container-fallback border border-stone-800/40">
+                            <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13636?auto=format&fit=crop&w=600&q=80" alt="Signature Valrhona Gâteau - Birthday Cake" class="w-full h-full object-cover filter brightness-[0.85] group-hover:scale-102 transition-transform duration-700">
+                        </div>
+                        <h4 class="font-heading text-lg text-white mb-2">Signature Valrhona Gâteau</h4>
+                        <p class="text-stone-400 text-xs font-light leading-relaxed">A symphony of Valrhona chocolate ganache, luxurious bronze gold paint dusting, and crunchy hazelnut praline sheets.</p>
+                    </div>
+                    <div class="p-8 pt-0 flex justify-between items-center border-t border-stone-800/60 mt-6">
+                        <span class="font-heading text-primary text-base font-medium">Rp 1.200.000</span>
+                        <a href="https://wa.me/6285964343063?text=Halo%20Wedara%20Patisserie,%20saya%20tertarik%20memesan%20Signature%20Valrhona%20Gâteau%20(Birthday%20Cake)." target="_blank" class="border border-primary/40 text-customText hover:bg-primary hover:text-black font-medium tracking-widest text-[10px] px-4 py-2.5 uppercase transition-all">Add to Bag</a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-4 flex flex-col gap-8 justify-between">
+                    <div class="bg-gradient-to-br from-[#241b14] to-[#121212] border border-primary/20 p-8 flex flex-col justify-center items-start space-y-4 flex-grow" data-aos="fade-up" data-aos-delay="100">
+                        <span class="border border-primary/30 text-primary text-[9px] tracking-widest px-3 py-1 bg-black/40 uppercase">Wedara Signature</span>
+                        <h4 class="font-heading text-xl text-white">Bespoke Design Experience</h4>
+                        <p class="text-stone-400 text-xs font-light leading-relaxed">Diskusikan kebutuhan struktur cake bertingkat Anda secara mendalam bersama Erissca Ernanda untuk hasil perayaan artistik paripurna.</p>
+                        <a href="#pesan" class="bg-primary text-black font-medium text-[10px] tracking-widest uppercase px-6 py-3 hover:bg-white transition-colors">Consult Now</a>
+                    </div>
+
+                    <div class="bg-cardBg border border-stone-800 p-8 flex flex-col justify-between group shadow-xl" data-aos="fade-up" data-aos-delay="150">
+                        <div>
+                            <h3 class="font-heading text-xl text-white mb-4">Celebration Cake</h3>
+                            <div class="aspect-[4/3] overflow-hidden w-full mb-4 image-container-fallback border border-stone-800/40">
+                                <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=600&q=80" alt="Abstract Bronze Gâteau - Celebration Cake" class="w-full h-full object-cover filter brightness-[0.85] group-hover:scale-102 transition-transform duration-700">
+                            </div>
+                            <h4 class="font-heading text-base text-white mb-1">Abstract Bronze Gâteau</h4>
+                            <p class="text-stone-400 text-xs font-light">Perfect for contemporary milestones and elegant dinner dates.</p>
+                        </div>
+                        <div class="flex justify-between items-center border-t border-stone-800/60 pt-4 mt-4">
+                            <span class="font-heading text-primary text-sm font-medium">Rp 380.000</span>
+                            <a href="https://wa.me/6285964343063?text=Halo%20Wedara%20Patisserie,%20saya%20tertarik%20memesan%20Abstract%20Bronze%20Gâteau%20(Celebration%20Cake)." target="_blank" class="text-primary hover:text-white text-[10px] tracking-widest font-semibold uppercase transition-colors">Order Cake</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-4 flex flex-col gap-8 justify-between">
+                    <div class="bg-cardBg border border-stone-800 p-8 flex flex-col justify-between group shadow-xl flex-grow" data-aos="fade-up" data-aos-delay="200">
+                        <div>
+                            <h3 class="font-heading text-xl text-white mb-4">Hampers Premium</h3>
+                            <div class="aspect-[16/10] overflow-hidden w-full mb-4 image-container-fallback border border-stone-800/40">
+                                <img src="https://images.unsplash.com/photo-1607344645866-009c320c5ab8?auto=format&fit=crop&w=600&q=80" alt="Gourmet Hamper Collection" class="w-full h-full object-cover filter brightness-[0.85] group-hover:scale-102 transition-transform duration-700">
+                            </div>
+                            <h4 class="font-heading text-base text-white mb-1">Gourmet Hamper Luxury Collection</h4>
+                            <p class="text-stone-400 text-xs font-light">Artisan macarons, vintage choice flavors, and assorted butter financiers packed inside a signature wood tier.</p>
+                        </div>
+                        <div class="flex justify-between items-center border-t border-stone-800/60 pt-4 mt-4">
+                            <span class="font-heading text-primary text-sm font-medium">Rp 650.000</span>
+                            <a href="https://wa.me/6285964343063?text=Halo%20Wedara%20Patisserie,%20saya%20tertarik%20memesan%20Gourmet%20Hamper%20Collection." target="_blank" class="text-primary hover:text-white text-[10px] tracking-widest font-semibold uppercase transition-colors">Gift Box Set</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-cardBg border border-stone-800 p-8 flex flex-col justify-between group shadow-xl" data-aos="fade-up" data-aos-delay="250">
+                        <div>
+                            <h3 class="font-heading text-xl text-white mb-4">White Wedding Cake Tier</h3>
+                            <div class="aspect-[4/3] overflow-hidden w-full mb-4 image-container-fallback border border-stone-800/40">
+                                <img src="https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=600&q=80" alt="Ornate White Tiered Gâteau" class="w-full h-full object-cover filter brightness-[0.85] group-hover:scale-102 transition-transform duration-700">
+                            </div>
+                            <h4 class="font-heading text-base text-white mb-1">Ornate White Tiered Gâteau</h4>
+                            <p class="text-stone-400 text-xs font-light">Classic pristine tiered design with rich organic Madagascar vanilla bean layers and bespoke edible sugar lace florals.</p>
+                        </div>
+                        <div class="flex justify-between items-center border-t border-stone-800/60 pt-4 mt-4">
+                            <span class="font-heading text-primary text-sm font-medium">Bespoke Price</span>
+                            <a href="https://wa.me/6285964343063?text=Halo%20Wedara%20Patisserie,%20saya%20ingin%20konsultasi%20harga%20Ornate%20White%20Tiered%20Gâteau%20(Wedding%20Cake)." target="_blank" class="text-primary hover:text-white text-[10px] tracking-widest font-semibold uppercase transition-colors">Book Consultation</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="paket" class="py-24 bg-[#111111]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+                <span class="text-accent uppercase tracking-widest text-xs font-semibold">Bespoke Solutions</span>
+                <h2 class="font-heading text-3xl sm:text-4xl text-white font-light mt-2">Sempurna untuk Setiap Selebrasi</h2>
+                <div class="w-12 h-[1px] bg-accent mx-auto my-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="border border-stone-800 bg-[#181818] p-8 hover:border-accent transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-primary text-2xl mb-4"><i class="fa-solid fa-cake-candles"></i></div>
+                    <h3 class="font-heading text-lg font-medium mb-2 text-white">Ulang Tahun (Birthday)</h3>
+                    <p class="text-stone-400 text-sm font-light leading-relaxed">Kue custom tematik megah dipadukan dengan ragam mini dessert penutup yang memukau mata para tamu.</p>
+                </div>
+                <div class="border border-stone-800 bg-[#181818] p-8 hover:border-accent transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-primary text-2xl mb-4"><i class="fa-solid fa-ring"></i></div>
+                    <h3 class="font-heading text-lg font-medium mb-2 text-white">Pernikahan (Wedding Cake)</h3>
+                    <p class="text-stone-400 text-sm font-light leading-relaxed">Struktur kue mahakarya bertingkat berhiaskan detail ukiran fondant royal yang mewah.</p>
+                </div>
+                <div class="border border-stone-800 bg-[#181818] p-8 hover:border-accent transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-primary text-2xl mb-4"><i class="fa-solid fa-briefcase"></i></div>
+                    <h3 class="font-heading text-lg font-medium mb-2 text-white">Corporate Gifting</h3>
+                    <p class="text-stone-400 text-sm font-light leading-relaxed">Paket hampers kue kering premium bersertifikasi dengan logo perusahaan custom untuk mitra VIP Anda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="keunggulan" class="py-24 bg-bgPremium">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-4">
+                    <div class="bg-cardBg p-6 shadow-sm border-l-4 border-primary border-stone-800" data-aos="fade-up">
+                        <div class="text-accent text-xl mb-2"><i class="fa-solid fa-award"></i></div>
+                        <h4 class="font-heading font-medium text-white">Freshly Baked Daily</h4>
+                        <p class="text-stone-400 text-xs font-light mt-1">Setiap pesanan baru masuk oven di hari H pengiriman demi mempertahankan kelembutan tekstur remah.</p>
+                    </div>
+                    <div class="bg-cardBg p-6 shadow-sm border-l-4 border-primary border-stone-800" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-accent text-xl mb-2"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                        <h4 class="font-heading font-medium text-white">Custom Design Cake</h4>
+                        <p class="text-stone-400 text-xs font-light mt-1">Diskusikan sketsa visual kue impian Anda secara mendalam langsung bersama Pastry Chef kami.</p>
+                    </div>
+                </div>
+                <div class="space-y-4 pt-8">
+                    <div class="bg-cardBg p-6 shadow-sm border-l-4 border-primary border-stone-800" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-accent text-xl mb-2"><i class="fa-solid fa-truck"></i></div>
+                        <h4 class="font-heading font-medium text-white">On-Time Delivery</h4>
+                        <p class="text-stone-400 text-xs font-light mt-1">Pengantaran privat memakai sistem proteksi guncangan khusus guna menjamin struktur dekorasi aman.</p>
+                    </div>
+                    <div class="bg-cardBg p-6 shadow-sm border-l-4 border-primary border-stone-800" data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-accent text-xl mb-2"><i class="fa-solid fa-box-open"></i></div>
+                        <h4 class="font-heading font-medium text-white">Elegant Packaging</h4>
+                        <p class="text-stone-400 text-xs font-light mt-1">Setiap kotak kue dikemas menggunakan hardbox mewah, aksen pita satin, dan kartu ucapan eksklusif.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="space-y-6" data-aos="fade-left">
+                <span class="text-accent uppercase tracking-widest text-xs font-semibold">Our Philosophy</span>
+                <h2 class="font-heading text-3xl sm:text-4xl text-white font-light">"Baked with Passion, Served with Love"</h2>
+                <div class="w-12 h-[1px] bg-accent my-4"></div>
+                <p class="text-stone-400 text-sm font-light leading-relaxed">
+                    Kami percaya bahwa kue bukan sekadar pencuci mulut pelengkap hidangan, melainkan poros estetika krusial yang membangun memori indah perayaan Anda. Seluruh elemen dekoratif dibuat presisi mengikuti standar F&B kelas atas.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-[#111111]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+                <h2 class="font-heading text-3xl sm:text-4xl text-white font-light">Artisan Reviews</h2>
+                <div class="w-12 h-[1px] bg-accent mx-auto my-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-cardBg p-8 border border-stone-800 relative flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+                    <div>
+                        <div class="text-accent mb-4 flex gap-1">
+                            <i class="fa-solid fa-star text-xs"></i><i class="fa-solid fa-star text-xs"></i><i class="fa-solid fa-star text-xs"></i><i class="fa-solid fa-star text-xs"></i><i class="fa-solid fa-star text-xs"></i>
+                        </div>
+                        <p class="text-stone-300 text-sm font-light italic leading-relaxed mb-6">"Kue ulang tahunnya sangat anggun dan rasanya seimbang, tidak kemanisan. Seluruh tamu memuji tampilannya."</p>
+                    </div>
+                    <div>
+                        <h4 class="font-heading text-sm font-semibold text-white">Sarah Wijaya</h4>
+                        <span class="text-[11px] text-stone-500 font-light block mt-0.5">Private Client</span>
+                    </div>
+                </div>
+                <div class="bg-cardBg p-8 border border-stone-800 relative flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <div class="text-accent mb-4 flex gap-1">
+                            <i class="fa-solid fa-star text-xs"></i><i class="fa-solid fa-star text-xs"></i><i class="fa-solid fa-star text-xs"></i><i class="fa-solid fa-star text-xs"></i><i class="fa-solid fa-star text-xs"></i>
+                        </div>
+                        <p class="text-stone-300 text-sm font-light italic leading-relaxed mb-6">"Wedding cake terbaik yang pernah kami pesan. Desain strukturalnya megah, dan rasa krimnya ringan namun sangat rich."</p>
+                    </div>
+                    <div>
+                        <h4 class="font-heading text-sm font-semibold text-white">Michael & Amanda</h4>
+                        <span class="text-[11px] text-stone-500 font-light block mt-0.5">Bride & Groom</span>
+                    </div>
+                </div>
+                <div class="bg-cardBg p-8 border border-stone-800 relative flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+                    <div>
+                        <div class="text-accent mb-4 flex gap-1">
+                            <i class="fa-solid fa-star text-xs"></i><i class="fa-solid fa-star text-xs"></i><i class="fa-solid fa-star text-xs"></i><i class="fa-solid fa-star text-xs"></i><i class="fa-solid fa-star text-xs"></i>
+                        </div>
+                        <p class="text-stone-300 text-sm font-light italic leading-relaxed mb-6">"Hampers premium eksklusif dengan stiker logo khusus perusahaan kami sendiri. Benar-benar menaikkan citra di depan mitra bisnis VIP."</p>
+                    </div>
+                    <div>
+                        <h4 class="font-heading text-sm font-semibold text-white">PT Maju Bersama</h4>
+                        <span class="text-[11px] text-stone-500 font-light block mt-0.5">Corporate Client</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-[#0D0D0D] overflow-hidden">
+        <div class="max-w-[1600px] mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="space-y-4">
+                    <div class="overflow-hidden aspect-[3/4]" data-aos="fade-up">
+                        <img src="https://images.unsplash.com/photo-1542826438-bd32f43d626f?auto=format&fit=crop&w=500&q=80" alt="Baking process" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500 filter brightness-75" loading="lazy">
+                    </div>
+                    <div class="overflow-hidden aspect-square" data-aos="fade-up">
+                        <img src="https://images.unsplash.com/photo-1516685018646-549198525c1b?auto=format&fit=crop&w=500&q=80" alt="Cake details" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500 filter brightness-75" loading="lazy">
+                    </div>
+                </div>
+                <div class="space-y-4 pt-8 md:pt-12">
+                    <div class="overflow-hidden aspect-square" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=500&q=80" alt="Bakery interior" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500 filter brightness-75" loading="lazy">
+                    </div>
+                    <div class="overflow-hidden aspect-[3/4]" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1464349172961-4c4af31997a3?auto=format&fit=crop&w=500&q=80" alt="Celebration cake" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500 filter brightness-75" loading="lazy">
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="overflow-hidden aspect-[3/4]" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=500&q=80" alt="Elegant wedding setup" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500 filter brightness-75" loading="lazy">
+                    </div>
+                    <div class="overflow-hidden aspect-square" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1514517604298-cf80e0fb7f1e?auto=format&fit=crop&w=500&q=80" alt="Dessert macaron table" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500 filter brightness-75" loading="lazy">
+                    </div>
+                </div>
+                <div class="space-y-4 pt-8 md:pt-12">
+                    <div class="overflow-hidden aspect-square" data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=500&q=80" alt="Chocolate glaze mini box" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500 filter brightness-75" loading="lazy">
+                    </div>
+                    <div class="overflow-hidden aspect-[3/4]" data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13636?auto=format&fit=crop&w=500&q=80" alt="White wedding cake tier" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500 filter brightness-75" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pesan" class="py-24 bg-bgPremium relative">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-cardBg p-8 sm:p-12 shadow-xl border border-stone-800" data-aos="fade-up">
+                <div class="text-center mb-10">
+                    <h2 class="font-heading text-3xl text-white font-light">Design Your Dream Cake</h2>
+                    <div class="w-12 h-[1px] bg-accent mx-auto my-3"></div>
+                    <p class="text-stone-400 text-xs font-light">Rancang spesifikasi kue kustom Anda, tim kurator kami akan merespons sketsa dalam waktu 15 menit.</p>
+                </div>
+                
+                <form id="orderForm" onsubmit="sendToWhatsApp(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-stone-400 font-medium mb-2">Nama Lengkap *</label>
+                            <input type="text" id="formNama" required class="w-full px-4 py-3 text-sm focus:outline-none transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-stone-400 font-medium mb-2">Nomor WhatsApp Pemesan *</label>
+                            <input type="tel" id="formWA" required class="w-full px-4 py-3 text-sm focus:outline-none transition-colors">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-stone-400 font-medium mb-2">Tanggal Hari Perayaan *</label>
+                            <input type="date" id="formTanggal" required class="w-full px-4 py-3 text-sm focus:outline-none transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-stone-400 font-medium mb-2">Estimasi Ukuran (Tier/Diameter) *</label>
+                            <input type="text" id="formUkuran" placeholder="Misal: Tier 2 / Diameter 22cm" required class="w-full px-4 py-3 text-sm focus:outline-none transition-colors">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-stone-400 font-medium mb-2">Tema / Konsep Desain Visual *</label>
+                            <input type="text" id="formTema" placeholder="Misal: Minimalist White Lace" required class="w-full px-4 py-3 text-sm focus:outline-none transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-stone-400 font-medium mb-2">Kota / Lokasi Pengiriman *</label>
+                            <select id="formKota" required class="w-full px-4 py-3 text-sm focus:outline-none transition-colors text-white">
+                                <option value="" disabled selected>-- Pilih Kota --</option>
+                                <option value="Mataram">Mataram</option>
+                                <option value="Lombok Barat">Lombok Barat</option>
+                                <option value="Lombok Tengah">Lombok Tengah</option>
+                                <option value="Lombok Timur">Lombok Timur</option>
+                                <option value="Lombok Utara">Lombok Utara</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-stone-400 font-medium mb-2">Catatan Tambahan & Alergi Makanan</label>
+                        <textarea id="formCatatan" rows="3" placeholder="Sebutkan tulisan khusus pada plat cokelat ucapan atau detail opsi pantangan alergi jika ada..." class="w-full px-4 py-3 text-sm focus:outline-none transition-colors"></textarea>
+                    </div>
+
+                    <div class="border-2 border-dashed border-stone-800 bg-black/40 p-6 text-center cursor-pointer hover:bg-black/80 transition-colors">
+                        <i class="fa-solid fa-cloud-arrow-up text-stone-500 mb-2 text-lg block"></i>
+                        <span class="text-[10px] uppercase tracking-widest font-semibold text-primary">Upload Referensi Gambar</span>
+                        <p class="text-[9px] text-stone-500 mt-1">Lampirkan langsung via chat WhatsApp sewaktu konfirmasi sketsa</p>
+                    </div>
+
+                    <div class="pt-2">
+                        <button type="submit" class="w-full bg-primary text-black py-4 tracking-widest text-xs uppercase font-bold hover:bg-opacity-95 transition-all shadow-md">Kirim Konsep Ke WhatsApp</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#111111] text-stone-400 pt-20 pb-8 border-t border-stone-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            <div class="space-y-4">
+                <a href="#" class="font-heading text-xl font-bold tracking-wider text-white">WEDARA PATISSERIE<span class="text-accent">.</span></a>
+                <p class="text-xs font-light leading-relaxed text-stone-400">Atelier butik kue premium yang mendedikasikan waktu penuh demi menyajikan karya seni kuliner bercita rasa tinggi khas pastry benua Eropa.</p>
+                
+                <div class="flex space-x-4 pt-4">
+                    <a href="https://instagram.com/wedarafood" target="_blank" class="w-8 h-8 rounded-full bg-stone-900 border border-stone-800 flex items-center justify-center text-stone-400 hover:text-white hover:border-primary transition-all text-sm" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://facebook.com/wedarafood" target="_blank" class="w-8 h-8 rounded-full bg-stone-900 border border-stone-800 flex items-center justify-center text-stone-400 hover:text-white hover:border-primary transition-all text-sm" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://wa.me/6285964343063" target="_blank" class="w-8 h-8 rounded-full bg-stone-900 border border-stone-800 flex items-center justify-center text-stone-400 hover:text-white hover:border-primary transition-all text-sm" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="mailto:wedarafood@gmail.com" class="w-8 h-8 rounded-full bg-stone-900 border border-stone-800 flex items-center justify-center text-stone-400 hover:text-white hover:border-primary transition-all text-sm" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="font-heading text-white text-base font-medium tracking-wide mb-6">Jam Operasional</h4>
+                <ul class="text-xs space-y-3 font-light">
+                    <li><span class="text-stone-300 font-medium">Senin - Minggu:</span> 08:00 - 22:00 WITA</li>
+                    <li class="text-accent italic mt-4"><i class="fa-solid fa-circle-info mr-1 text-[10px]"></i> Sistem pemesanan Pre-Order H-3 sangat disarankan.</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-heading text-white text-base font-medium tracking-wide mb-6">Butik Atelier</h4>
+                <ul class="text-xs space-y-3 font-light">
+                    <li><a href="https://wa.me/6285964343063" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-whatsapp mr-2 text-accent"></i> +62 859-6434-3063</a></li>
+                    <li><a href="mailto:wedarafood@gmail.com" class="hover:text-white transition-colors"><i class="fa-solid fa-envelope mr-2 text-accent"></i> wedarafood@gmail.com</a></li>
+                    <li><i class="fa-solid fa-location-dot mr-2 text-accent"></i> Perumahan Muhajirin Asri 2 & 3, Pertokoan Muhajirin Asri No.2, Terong Tawah, Kec. Labuapi, Kab. Lombok Barat, NTB 83361</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-heading text-white text-base font-medium tracking-wide mb-6">Lokasi Peta</h4>
+                <div class="w-full h-32 bg-stone-950 relative overflow-hidden">
+                    <iframe src="https://www.google.com/maps/embed?pb=!11m18!1m12!1m3!1d3966.111111111111!2d106.815!3d-6.25!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTUnMDAuMCJTIDEwNks0OCcwNi4wIkU!5e0!3m2!1sid!2sid!4v1620000000000!5m2!1sid!2sid" class="w-full h-full border-0 opacity-70 hover:opacity-100 transition-opacity" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-stone-800 pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] font-light">
+            <p>© 2026 WEDARA PATISSERIE. All Rights Reserved.</p>
+            <p class="mt-2 sm:mt-0">Designed for Elite Gourmet Experiences.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/6285964343063?text=Halo%20Wedara%20Patisserie,%20saya%20ingin%20bertanya%20mengenai%20koleksi%20menu%20kue%20premium." target="_blank" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 group" aria-label="Hubungi WhatsApp">
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+        <span class="absolute right-14 bg-white text-black font-medium text-xs py-1.5 px-3 shadow-md rounded-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none border border-stone-100">Hubungi Kami</span>
+    </a>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            duration: 800,
+            easing: 'ease-out-cubic'
+        });
+
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+            
+            const nama = document.getElementById('formNama').value;
+            const wa = document.getElementById('formWA').value;
+            const tanggal = document.getElementById('formTanggal').value;
+            const ukuran = document.getElementById('formUkuran').value;
+            const tema = document.getElementById('formTema').value;
+            const kota = document.getElementById('formKota').value;
+            const catatan = document.getElementById('formCatatan').value || "Tidak ada catatan khusus.";
+            
+            const targetPhone = "6285964343063"; 
+            
+            const textMessage = `*Design Your Dream Cake - WEDARA PATISSERIE*%0A%0A` +
+                                `*Nama Patron:* ${nama}%0A` +
+                                `*WhatsApp No:* ${wa}%0A` +
+                                `*Tanggal Selebrasi:* ${tanggal}%0A` +
+                                `*Estimasi Ukuran:* ${ukuran}%0A` +
+                                `*Tema / Konsep:* ${tema}%0A` +
+                                `*Lokasi Pengiriman:* ${kota}%0A` +
+                                `*Catatan Spesifik:* ${catatan}`;
+            
+            window.open(`https://api.whatsapp.com/send?phone=${targetPhone}&text=${textMessage}`, '_blank');
+        }
+    </script>
+</body>
+</html>
